@@ -42,10 +42,10 @@ rm -r -f ${BUILD_DIR}
 mkdir -p ${BUILD_DIR}
 
 # Compile the circuit
-circom ${PATH_CIRCUIT}/${CIRCUIT}.circom --r1cs --wasm --sym --c -o ${BUILD_DIR}
+circom ${PATH_CIRCUIT}/${CIRCUIT}.circom --r1cs --wasm --sym --c -o ${BUILD_DIR} -l ./node_modules/@zk-kit/circuits/circom -l ./node_modules/circomlib/circuits
 
-# # Generate the witness.wtns
-# node ${BUILD_DIR}/${CIRCUIT}_js/generate_witness.js ${BUILD_DIR}/${CIRCUIT}_js/${CIRCUIT}.wasm ${PATH_CIRCUIT}/input.json ${BUILD_DIR}/${CIRCUIT}_js/witness.wtns
+# Generate the witness.wtns
+node ${BUILD_DIR}/${CIRCUIT}_js/generate_witness.js ${BUILD_DIR}/${CIRCUIT}_js/${CIRCUIT}.wasm ${PATH_CIRCUIT}/input.json ${BUILD_DIR}/${CIRCUIT}_js/witness.wtns
 
 echo "----- Generate .zkey file -----"
 # Generate a .zkey file that will contain the proving and verification keys together with all phase 2 contributions
@@ -55,22 +55,22 @@ echo "----- Export the verification key -----"
 # Export the verification key
 snarkjs zkey export verificationkey ${BUILD_DIR}/${CIRCUIT}_final.zkey ${BUILD_DIR}/verification_key.json
 
-# echo "----- Generate zk-proof -----"
-# # Generate a zk-proof associated to the circuit and the witness. This generates proof.json and public.json
-# snarkjs fflonk prove ${BUILD_DIR}/${CIRCUIT}_final.zkey ${BUILD_DIR}/${CIRCUIT}_js/witness.wtns ${BUILD_DIR}/proof.json ${BUILD_DIR}/public.json
+echo "----- Generate zk-proof -----"
+# Generate a zk-proof associated to the circuit and the witness. This generates proof.json and public.json
+snarkjs fflonk prove ${BUILD_DIR}/${CIRCUIT}_final.zkey ${BUILD_DIR}/${CIRCUIT}_js/witness.wtns ${BUILD_DIR}/proof.json ${BUILD_DIR}/public.json
 
-# echo "----- Verify the proof -----"
-# # Verify the proof
-# snarkjs fflonk verify ${BUILD_DIR}/verification_key.json ${BUILD_DIR}/public.json ${BUILD_DIR}/proof.json
+echo "----- Verify the proof -----"
+# Verify the proof
+snarkjs fflonk verify ${BUILD_DIR}/verification_key.json ${BUILD_DIR}/public.json ${BUILD_DIR}/proof.json
 
 echo "----- Generate Solidity verifier -----"
 # Generate a Solidity verifier that allows verifying proofs on Ethereum blockchain
 snarkjs zkey export solidityverifier ${BUILD_DIR}/${CIRCUIT}_final.zkey ${BUILD_DIR}/${CIRCUIT}FflonkVerifier.sol
-# # Update the solidity version in the Solidity verifier
-# sed -i "s/>=0.7.0 <0.9.0;/^0.8.4;/g" ${BUILD_DIR}/${CIRCUIT}FflonkVerifier.sol
-# # Update the contract name in the Solidity verifier
-# sed -i "s/contract PlonkVerifier/contract ${CIRCUIT^}FflonkVerifier/g" ${BUILD_DIR}/${CIRCUIT}FflonkVerifier.sol
+# Update the solidity version in the Solidity verifier
+sed -i "s/>=0.7.0 <0.9.0;/^0.8.4;/g" ${BUILD_DIR}/${CIRCUIT}FflonkVerifier.sol
+# Update the contract name in the Solidity verifier
+sed -i "s/contract PlonkVerifier/contract ${CIRCUIT^}FflonkVerifier/g" ${BUILD_DIR}/${CIRCUIT}FflonkVerifier.sol
 
-# echo "----- Generate and print parameters of call -----"
-# # Generate and print parameters of call
-# snarkjs generatecall ${BUILD_DIR}/public.json ${BUILD_DIR}/proof.json | tee ${BUILD_DIR}/parameters.txt
+echo "----- Generate and print parameters of call -----"
+# Generate and print parameters of call
+snarkjs generatecall ${BUILD_DIR}/public.json ${BUILD_DIR}/proof.json | tee ${BUILD_DIR}/parameters.txt

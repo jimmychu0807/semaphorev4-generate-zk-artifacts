@@ -401,6 +401,48 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zk-kit/baby-jubjub@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@zk-kit/baby-jubjub@npm:0.1.1"
+  dependencies:
+    "@zk-kit/utils": 0.1.0
+  checksum: 387703ac26e17cbb7bc480198a6f9a7d39e7900e940bef5f106cd0e041b14f82f7047926f07969548794766d316f82306f3aae5c04c7f12917d4d4933dfbc4b6
+  languageName: node
+  linkType: hard
+
+"@zk-kit/circuits@npm:^0.2.4":
+  version: 0.2.4
+  resolution: "@zk-kit/circuits@npm:0.2.4"
+  dependencies:
+    circomlib: ^2.0.5
+  checksum: 6d203da9c8110dcc90bd33d593a21400a3a3b73e5194775282445ed06e93eca068aaa2c5ef7f1c0606d75c0c4d8753f7230f2cc2a4506126c3150eafd1f7a887
+  languageName: node
+  linkType: hard
+
+"@zk-kit/eddsa-poseidon@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@zk-kit/eddsa-poseidon@npm:0.5.1"
+  dependencies:
+    "@zk-kit/baby-jubjub": 0.1.1
+    "@zk-kit/utils": 0.1.0
+  checksum: f52860c1ed5b0e9ad8257b2269b543bcf9bc567698b98491d6ece28df6dee27f79836669f5fefe7668b8e360bf0b717422dfda19b69e56873a2d71fb836712b4
+  languageName: node
+  linkType: hard
+
+"@zk-kit/imt@npm:^2.0.0-beta":
+  version: 2.0.0-beta
+  resolution: "@zk-kit/imt@npm:2.0.0-beta"
+  checksum: e4fdde4c171df9ab2c0b02f38ba480418231239aebf362098186a59537c19e24d7985ff11ff9e908f23d54ca620e81edfecf82d52b2c881677f89cd8654cdb80
+  languageName: node
+  linkType: hard
+
+"@zk-kit/utils@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@zk-kit/utils@npm:0.1.0"
+  checksum: 3ea65c1e236333f8d19e178559a58c3652cc209b6d6af3183529289db1f9f0d9744373c331c76df122e41ff70118e5e6ee392472d2a7ccad3641a7279d56a379
+  languageName: node
+  linkType: hard
+
 "abbrev@npm:^2.0.0":
   version: 2.0.0
   resolution: "abbrev@npm:2.0.0"
@@ -835,6 +877,9 @@ __metadata:
     "@types/node": ^20.10.7
     "@typescript-eslint/eslint-plugin": ^6.18.1
     "@typescript-eslint/parser": ^6.18.1
+    "@zk-kit/circuits": ^0.2.4
+    "@zk-kit/eddsa-poseidon": ^0.5.1
+    "@zk-kit/imt": ^2.0.0-beta
     chai: ^4.4.0
     circom_tester: ^0.0.20
     circomlib: ^2.0.5
@@ -844,6 +889,7 @@ __metadata:
     eslint-config-prettier: ^9.1.0
     eslint-plugin-import: ^2.29.1
     mocha: ^10.2.0
+    poseidon-lite: ^0.2.0
     prettier: ^3.1.1
     ts-node: ^10.9.2
     typescript: ^5.3.3
@@ -2912,6 +2958,13 @@ __metadata:
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 050c865ce81119c4822c45d3c84f1ced46f93a0126febae20737bd05ca20589c564d6e9226977df859ed5e03dc73f02584a2b0faad36e896936238238b0446cf
+  languageName: node
+  linkType: hard
+
+"poseidon-lite@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "poseidon-lite@npm:0.2.0"
+  checksum: c47c6fd0a29a78ca1f7cf6ccb8b0c4f4e72930d944e63425e36f60c15d37fb0aeca30b8a22a30640ed68d631142282c0b8308da83b1a2b2bb92b87f5a2432c93
   languageName: node
   linkType: hard
 

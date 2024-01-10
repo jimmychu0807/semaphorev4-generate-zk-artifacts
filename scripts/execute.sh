@@ -1,13 +1,16 @@
 #!/bin/bash
 
+END=3
+
+# In case there is a circuit name as input
+if [ "$1" ]; then
+    END=$1
+fi
+
 echo "----- Remove build folder -----"
 ./scripts/removeBuildFolder.sh
 
-echo "----- Sudoku -----"
-echo "----- Sudoku Groth16 -----"
-./scripts/executeGroth16.sh sudoku 13
-echo "----- Sudoku Plonk -----"
-./scripts/executePlonk.sh sudoku 15
-echo "----- Sudoku Fflonk -----"
-./scripts/executeFflonk.sh sudoku 18
-
+for i in $(seq "$END"); do
+    echo "----- semaphore-$i -----"
+    ./scripts/executeGroth16.sh semaphore-$i 14
+done

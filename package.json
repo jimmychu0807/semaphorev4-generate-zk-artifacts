@@ -6,13 +6,18 @@
         "lint": "eslint \"**/*.{js,ts}\"",
         "prettier": "prettier -c .",
         "prettier:write": "prettier -w .",
-        "compile": "./scripts/compile.sh",
-        "generate:witness": "./scripts/generateWitness.sh",
-        "execute": "./scripts/execute.sh",
-        "run:groth16": "./scripts/executeGroth16.sh",
-        "run:plonk": "./scripts/executePlonk.sh",
-        "run:fflonk": "./scripts/executeFflonk.sh",
-        "remove:build": "./scripts/removeBuildFolder.sh"
+        "compile": "chmod u+x ./scripts/compile.sh && ./scripts/compile.sh",
+        "generate:witness": "chmod u+x ./scripts/generateWitness.sh && ./scripts/generateWitness.sh",
+        "execute": "chmod u+x ./scripts/execute.sh && ./scripts/execute.sh",
+        "run:groth16": "chmod u+x ./scripts/executeGroth16.sh && ./scripts/executeGroth16.sh",
+        "run:plonk": "chmod u+x ./scripts/executePlonk.sh && ./scripts/executePlonk.sh",
+        "run:fflonk": "chmod u+x ./scripts/executeFflonk.sh && ./scripts/executeFflonk.sh",
+        "remove:build": "chmod u+x ./scripts/removeBuildFolder.sh && ./scripts/removeBuildFolder.sh",
+        "create:files": "ts-node ./scripts/createFiles.ts",
+        "remove:files": "ts-node ./scripts/removeCreatedFiles.ts",
+        "copy:files": "ts-node ./scripts/copyArtifactsFiles.ts",
+        "remove:artifacts": "ts-node ./scripts/removeArtifactsFolder.ts",
+        "run:all": "yarn remove:files 1 32 && yarn create:files 1 32 && yarn execute 32 && yarn remove:artifacts && yarn copy:files 1 32"
     },
     "devDependencies": {
         "@types/chai": "^4.3.11",
@@ -20,6 +25,8 @@
         "@types/node": "^20.10.7",
         "@typescript-eslint/eslint-plugin": "^6.18.1",
         "@typescript-eslint/parser": "^6.18.1",
+        "@zk-kit/eddsa-poseidon": "^0.5.1",
+        "@zk-kit/imt": "^2.0.0-beta",
         "chai": "^4.4.0",
         "circom_tester": "^0.0.20",
         "eslint": "^8.56.0",
@@ -28,11 +35,13 @@
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-import": "^2.29.1",
         "mocha": "^10.2.0",
+        "poseidon-lite": "^0.2.0",
         "prettier": "^3.1.1",
         "ts-node": "^10.9.2",
         "typescript": "^5.3.3"
     },
     "dependencies": {
+        "@zk-kit/circuits": "^0.2.4",
         "circomlib": "^2.0.5"
     }
 }
