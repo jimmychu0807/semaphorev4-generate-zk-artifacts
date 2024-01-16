@@ -10,8 +10,8 @@ export function createInput(maxDepth: number) {
     const scope = 32
     const message = 43
 
-    const privateKey = 1
-    const publicKey = derivePublicKey(privateKey)
+    const secret = 1
+    const publicKey = derivePublicKey(secret)
 
     const leaf = poseidon2(publicKey)
 
@@ -32,7 +32,7 @@ export function createInput(maxDepth: number) {
     }
 
     const input = {
-        privateKey: deriveSecretScalar(privateKey),
+        secret: deriveSecretScalar(secret),
         merkleProofLength: merkleProofSiblings.length,
         merkleProofIndices,
         merkleProofSiblings,
