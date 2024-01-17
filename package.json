@@ -17,6 +17,7 @@
         "remove:files": "ts-node ./scripts/removeCreatedFiles.ts",
         "copy:files": "ts-node ./scripts/copyArtifactsFiles.ts",
         "remove:artifacts": "ts-node ./scripts/removeArtifactsFolder.ts",
+        "merge:verification-keys": "ts-node ./scripts/mergeVerificationKeys.ts",
         "run:all": "yarn remove:files 1 32 && yarn create:files 1 32 && yarn execute 32 && yarn remove:artifacts && yarn copy:files 1 32"
     },
     "devDependencies": {
