@@ -23,3 +23,11 @@ ptau
 .DS_Store
 
 artifacts
+
+repo-artifacts
+
+verification-keys.json
+
+circuits/*-[0-9]*
+
+ceremony-artifacts

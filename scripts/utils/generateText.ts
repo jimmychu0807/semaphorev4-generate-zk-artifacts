@@ -10,14 +10,13 @@ export function createInput(maxDepth: number) {
     const scope = 32
     const message = 43
 
-    const secret = 1
-    const publicKey = derivePublicKey(secret)
+    const privateKey = "privateKey"
 
-    const leaf = poseidon2(publicKey)
+    const publicKey = derivePublicKey(privateKey)
 
-    const tree = new LeanIMT((a, b) => poseidon2([a, b]))
+    const commitment = poseidon2(publicKey)
 
-    tree.insert(leaf)
+    const tree = new LeanIMT((a, b) => poseidon2([a, b]), [commitment, 1n, 2n])
 
     const { siblings: merkleProofSiblings, index } = tree.generateProof(0)
 
@@ -32,7 +31,7 @@ export function createInput(maxDepth: number) {
     }
 
     const input = {
-        secret: deriveSecretScalar(secret),
+        secret: deriveSecretScalar(privateKey),
         merkleProofLength: merkleProofSiblings.length,
         merkleProofIndices,
         merkleProofSiblings,
