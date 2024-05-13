@@ -28,6 +28,8 @@ repo-artifacts
 
 verification-keys.json
 
+contract-verification-keys.json
+
 circuits/*-[0-9]*
 
 ceremony-artifacts
