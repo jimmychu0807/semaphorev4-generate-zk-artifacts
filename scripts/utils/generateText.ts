@@ -16,7 +16,7 @@ export function createInput(maxDepth: number) {
 
     const commitment = poseidon2(publicKey)
 
-    const tree = new LeanIMT((a, b) => poseidon2([a, b]), [commitment, 1n, 2n])
+    const tree = new LeanIMT((a, b) => poseidon2([a, b]), [commitment, 1n])
 
     const { siblings: merkleProofSiblings, index } = tree.generateProof(0)
 

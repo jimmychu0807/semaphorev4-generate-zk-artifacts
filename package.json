@@ -21,7 +21,7 @@
         "get:wasm-zkey-files": "ts-node ./scripts/getWasmZkeyFiles.ts",
         "get:ceremony-files": "ts-node ./scripts/getCeremonyFiles.ts",
         "get:contract-keys": "ts-node ./scripts/getContractVerifierKeys.ts",
-        "run:all": "yarn remove:files 2 32 && yarn create:files 2 32 && yarn execute 2 32 && yarn remove:artifacts && yarn copy:files 2 32 && yarn merge:verification-keys 2 32 && yarn get:wasm-zkey-files 2 32 && yarn get:ceremony-files 2 32 && yarn get:contract-keys"
+        "run:all": "yarn remove:files 1 32 && yarn create:files 1 32 && yarn execute 1 32 && yarn remove:artifacts && yarn copy:files 1 32 && yarn merge:verification-keys 1 32 && yarn get:wasm-zkey-files 1 32 && yarn get:ceremony-files 1 32 && yarn get:contract-keys"
     },
     "devDependencies": {
         "@types/chai": "^4.3.11",
