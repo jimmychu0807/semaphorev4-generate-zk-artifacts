@@ -33,3 +33,7 @@ contract-verification-keys.json
 circuits/*-[0-9]*
 
 ceremony-artifacts
+
+p0tion-artifacts
+
+p0tion-repo-artifacts
