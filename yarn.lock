@@ -938,7 +938,7 @@ __metadata:
     mocha: "npm:^10.2.0"
     poseidon-lite: "npm:^0.2.0"
     prettier: "npm:^3.1.1"
-    snarkjs: "npm:^0.7.4"
+    snarkjs: "npm:0.7.4"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -3400,6 +3400,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"snarkjs@npm:0.7.4":
+  version: 0.7.4
+  resolution: "snarkjs@npm:0.7.4"
+  dependencies:
+    "@iden3/binfileutils": "npm:0.0.12"
+    bfj: "npm:^7.0.2"
+    blake2b-wasm: "npm:^2.4.0"
+    circom_runtime: "npm:0.1.25"
+    ejs: "npm:^3.1.6"
+    fastfile: "npm:0.0.20"
+    ffjavascript: "npm:0.3.0"
+    js-sha3: "npm:^0.8.0"
+    logplease: "npm:^1.2.15"
+    r1csfile: "npm:0.0.48"
+  bin:
+    snarkjs: build/cli.cjs
+  checksum: 10c0/530abe64711f73bd44e24caca1be47bba15eb6017a6ce46dd1b655d416376065c39042df8cb8ebb7cf74291760ad7442b19dc947ea6e57d28abbb14e23d7c6d2
+  languageName: node
+  linkType: hard
+
 "snarkjs@npm:^0.7.0":
   version: 0.7.3
   resolution: "snarkjs@npm:0.7.3"
@@ -3417,26 +3437,6 @@ __metadata:
   bin:
     snarkjs: build/cli.cjs
   checksum: 10c0/d170a92f54e813758f0085c1191b550d948b808531db8be08435a244121341e2a83c90c2db81b974b23133eddbefa8e4eb01a346f143c099891565983850c773
-  languageName: node
-  linkType: hard
-
-"snarkjs@npm:^0.7.4":
-  version: 0.7.4
-  resolution: "snarkjs@npm:0.7.4"
-  dependencies:
-    "@iden3/binfileutils": "npm:0.0.12"
-    bfj: "npm:^7.0.2"
-    blake2b-wasm: "npm:^2.4.0"
-    circom_runtime: "npm:0.1.25"
-    ejs: "npm:^3.1.6"
-    fastfile: "npm:0.0.20"
-    ffjavascript: "npm:0.3.0"
-    js-sha3: "npm:^0.8.0"
-    logplease: "npm:^1.2.15"
-    r1csfile: "npm:0.0.48"
-  bin:
-    snarkjs: build/cli.cjs
-  checksum: 10c0/530abe64711f73bd44e24caca1be47bba15eb6017a6ce46dd1b655d416376065c39042df8cb8ebb7cf74291760ad7442b19dc947ea6e57d28abbb14e23d7c6d2
   languageName: node
   linkType: hard
 

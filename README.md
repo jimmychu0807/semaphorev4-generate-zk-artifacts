@@ -51,3 +51,13 @@ The zk-artifacts needed to use Semaphore will be inside a folder named `artifact
 │   │   ├── semaphore.zkey
 │   │   ├── semaphore.json
 ```
+
+## Versions used to generate the zk artifacts for Semaphore v4
+
+```bash
+circom compiler 2.1.7
+```
+
+```bash
+snarkjs@0.7.4
+```
